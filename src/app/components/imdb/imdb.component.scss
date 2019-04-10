@@ -1,0 +1,29 @@
+
+#detail-img{
+margin: 0 auto;
+margin-top: 12px;
+box-shadow: 0 0 1px 1px;
+transition: 0.8s;
+width: 80% !important;
+height: 80%;
+text-align: center;
+}
+#detail-img img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+
+#detail-img:hover{
+	transform: scale(1.15);
+}
+.download_img{
+    width: 30px;
+    display: inline-block;
+    margin-left: 12px;
+}
+.download_img img{
+    width: 100%;
+}
+

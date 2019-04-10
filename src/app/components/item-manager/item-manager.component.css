@@ -10,5 +10,25 @@ span.fa.fa-pencil {
 }
 .myinp{
     width: 50%;
-    padding: 5px;
+    padding: 8px;
+    border: 1px solid #d0cbcb;
+    border-radius: 4px;
+}
+li.list-group-item {
+    margin-bottom: 10px;
+    transition: 0.6s;
+}
+
+li.list-group-item[_ngcontent-c2]:hover {
+    background: #1c4356;
+    color: white;
+    transform: translateY(-5px);
+}
+li.list-group-item[_ngcontent-c2]:hover  span.fa.fa-pencil{
+color: white;
+}
+input#modalinp{
+width: 80%;
+    border: none;
+    outline: none;
 }

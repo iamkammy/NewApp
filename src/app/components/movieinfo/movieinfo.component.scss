@@ -1,0 +1,56 @@
+// Box shadow helper
+@mixin BoxShadowHelper($level: 1){
+  @if $level == 1 {
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
+  }
+  @if $level == 2 {
+    box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15);
+  }
+}
+a {transition: .25s all;}
+.card {
+  overflow: hidden;
+  margin-bottom: 15px;
+  @include BoxShadowHelper(1);
+  transition: .25s box-shadow;
+  &:focus,
+  &:hover {@include BoxShadowHelper(2);}
+}
+.card-inverse .card-img-overlay {
+  background-color: rgba(#333,.85);
+  border-color: rgba(#333,.85);
+}
+// .card-title {
+//  margin-bottom: 0px !important;
+// }
+
+.loader{
+  width: 60px;
+  height:60px;
+  border: 2px solid #333;
+  border-bottom: 1px solid #03A9F4;
+  border-top: 1px solid red;
+  border-radius: 50%;
+  animation: 1s linear infinite spin;
+  position: relative;
+  left: 50%;
+
+}
+@keyframes spin{
+  from { transform: rotate(0deg)}
+  to { transform: rotate(360deg)}
+}
+
+.img-wrapper{
+  //  max-width: 60%;
+}
+.img-wrapper img{
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+}
+.card-block {
+  padding: 10px;
+  text-align: center;
+  /* margin-bottom: 15px; */
+}

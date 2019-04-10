@@ -1,0 +1,11 @@
+
+<h2 class="text-center text-info">Welcome to posts</h2>
+<p class="ml-4">Click Here to get the results</p>
+<button class="btn btn-outline-info ml-4" id="btn" (click)="get()">Get Post</button>
+<div  class="loader" *ngIf ="loading" ></div>
+
+
+<div  *ngFor="let post of posts">
+  <h3>{{post.title}}</h3>
+  <p>{{post.body}}</p>
+ </div>

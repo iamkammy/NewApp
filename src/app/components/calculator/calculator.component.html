@@ -1,0 +1,23 @@
+<div class="container mt-4" >
+      <div class="card">
+        <div class="card-header text-center display-4 text-info">
+          CALCULATOR
+        </div>
+        <div class="card-body">
+          <div class="form-group d-flex flex-row">
+            <input [(ngModel)]="num1"  style="margin-right:12px;" type="number" name="num1" class="form-control" placeholder="Enter 1st no">
+            <input [(ngModel)]="num2" type="number" name="num2" class="form-control" placeholder="Enter 2nd no">
+              
+          </div>
+          <div>
+            <button (click)="addition()" class="btn btn-primary mr-2">{{add}}</button>
+            <button (click)="sub()" class="btn btn-success mr-2">{{Sub}}</button>
+            <button (click)="mul()" class="btn btn-warning mr-2">{{Mul}}</button>
+            <button (click)="div()" class="btn btn-danger mr-2">{{DIV}}</button>
+          </div>
+        </div>
+        <div class="card-footer">
+          <h4> The {{operation}} of {{num1}} and {{num2}} is  {{result}} </h4>
+        </div>
+      </div>
+</div>

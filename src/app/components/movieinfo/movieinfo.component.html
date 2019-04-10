@@ -1,0 +1,49 @@
+<nav class="navbar navbar-default">
+	<div class="container">
+		<div class="navbar-header">
+			<a class="navbar-brand" >MovieInfo</a>
+			<a class="navbar-brand" >Explore</a>
+			<a class="navbar-brand" target="_blank" href="https://timesofindia.indiatimes.com/entertainment/hindi/movie-reviews">Bollywood</a>
+			<a class="navbar-brand" target="_blank" href="https://www.imdb.com/list/ls068010962/">Actors</a>
+		</div>
+	</div>
+</nav>
+
+<div class="container">
+	<div class="jumbotron">
+		<h3 class="text-center" style="color:#06608c;">Search For Any Movie</h3>
+		<form id="searchForm" (submit)="getMovies()" class="form-group">
+			<input type="text" (keyup)="onKey($event)" class="form-control" id="searchText" placeholder="Search Movies ...">
+			<button type="button" (click)="getMovies()" class="btn btn-info mx-auto d-block mt-2">Search</button>
+		</form>
+	</div>
+</div>
+
+<div class="container">
+  <div class="loader" [hidden]="hidden"> </div>
+  <div class="row" id="movies"> 
+
+    <div class="container m-t-md">
+      <!-- First row -->
+      <div class="row">
+        <div *ngFor="let item of recentVal; let ind = index" class="col-xs-12 col-md-3">
+          <!-- Card -->
+          <article class="card animated fadeInLeft">
+                <div class="img-wrapper">
+            <img class="card-img-top img-responsive" src={{item.Poster}} alt="Deer in nature" />
+               </div>
+            <div class="card-block">
+              <h4 class="card-title ml-2">{{item.Title}}</h4>
+              <h6 class="text-muted ml-2">Released In: {{item.Year}}</h6>
+              <!-- <p class="card-text ml-2">Tired of their servitude to man, a group of farm animals revolt and establish their own society.</p> -->
+              <a routerLink="/imdb" (click)="movieSelected(item.imdbID)" class="btn btn-info ml-2">Details</a>
+            </div>
+          </article><!-- .end Card -->
+        </div>
+        
+        
+      </div><!-- .end Second row -->
+    </div>
+    
+  </div>
+</div>
