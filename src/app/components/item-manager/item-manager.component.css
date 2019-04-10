@@ -1,0 +1,14 @@
+span.fa.fa-trash-o {
+    position: absolute;
+    right: 0.6em;
+    color: #ff7f7f;
+}
+span.fa.fa-pencil {
+    position: absolute;
+    right: 2em;
+    color: #208be2;
+}
+.myinp{
+    width: 50%;
+    padding: 5px;
+}

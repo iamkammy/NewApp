@@ -1,0 +1,12 @@
+.pass{
+    position: relative;
+}
+.fa.fa-eye{
+    position: absolute;
+    top: 58%;
+    right: 3%;
+    color: #800830;
+}
+#Address{
+    resize: none;
+}

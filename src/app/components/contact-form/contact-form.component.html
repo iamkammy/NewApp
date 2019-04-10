@@ -1,0 +1,55 @@
+<div class="container">
+  <h2 class="text-info text-center display-4">Contact Us</h2>
+<form style="width:60%"  >
+  <div class="form-group">
+      <label for="firstName"> Name</label>
+      <input required minlength="3" maxlength="10" ngModel name="firstName" #firstName="ngModel" (change)="log(firstName)" id="firstName" type="text" class="form-control">
+      <div class="alert alert-danger" *ngIf="firstName.touched && !firstName.valid">
+        <div *ngIf="firstName.errors.required">First Name is required.</div>
+        <div *ngIf="firstName.errors.minlength">First Name should be minimum {{firstName.errors.minlength.requiredLength}} characters</div>
+      </div>
+  </div>
+  
+  <div class="form-group">
+      <label for="">Email:</label>
+      <input required minlength="6" maxlength="30" ngModel name="email" #email="ngModel" id="email" type="email" class="form-control">
+      <div class="alert alert-danger" *ngIf="email.touched && email.invalid">
+        <div *ngIf="email.errors.required">Email  is required.</div>
+        <div *ngIf="email.errors.minlength">Email length should be minimum {{email.errors.minlength.requiredLength}}.</div>
+        <div *ngIf="email.errors.maxlength">Email length should be maximum {{email.errors.maxlength.requiredLength}}.</div>
+      </div>
+  </div>
+
+
+  <div class="form-group pass">
+      <label for="">Password:</label>
+      <input required minlength="5" maxlength="15" ngModel name="pass" #pass="ngModel" id="pass" type="password" class="form-control">
+      <div class="alert alert-danger" *ngIf="pass.touched && !pass.valid">
+        <div *ngIf="pass.errors.required">Password  is required.</div>
+        <div *ngIf="pass.errors.minlength">Password  length should be minimum {{pass.errors.minlength.requiredLength}}</div>
+      </div>
+  </div>
+
+
+  <div class="form-group">
+    <label for="comment">Address</label>
+    <textarea ngModel name="Address"  id="Address" cols="3" rows="3" class="form-control"></textarea>
+  </div>
+  <button class="btn btn-primary" [swal]="['Nice!', 'Your data is saved successfully', 'success']" type="button">Submit</button> 
+
+</form>
+
+<!-- <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <strong class="mr-auto">Bootstrap</strong>
+      <small>11 mins ago</small>
+      <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="toast-body">
+      Hello, world! This is a toast message.
+    </div>
+  </div> -->
+
+</div>
