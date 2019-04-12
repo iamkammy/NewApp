@@ -20,7 +20,8 @@ import { CalculatorComponent } from './components/calculator/calculator.componen
 import { MovieinfoComponent } from './components/movieinfo/movieinfo.component';
 import { MoviedetailsService } from './moviedetails.service';
 import { ImdbComponent } from './components/imdb/imdb.component';
-
+import {WeatherService} from './weather.service';
+import { WeatherComponent } from './components/weather/weather.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { ImdbComponent } from './components/imdb/imdb.component';
     CalculatorComponent,
     MovieinfoComponent,
     ImdbComponent,
+    WeatherComponent,
   ],
   imports: [
     SweetAlert2Module.forRoot(),
@@ -47,11 +49,12 @@ import { ImdbComponent } from './components/imdb/imdb.component';
       {path: 'posts', component: PostsComponent},
       {path: 'Calculator', component: CalculatorComponent},
       {path: 'MovieInfo', component: MovieinfoComponent},
-      {path: 'imdb', component: ImdbComponent}
+      {path: 'imdb', component: ImdbComponent},
+      {path: 'Weather', component: WeatherComponent},
     ])
     // ReactiveFormsModule
   ],
-  providers: [DataService,MoviedetailsService],
+  providers: [DataService,MoviedetailsService,WeatherService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

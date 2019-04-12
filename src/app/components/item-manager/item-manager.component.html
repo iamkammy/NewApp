@@ -3,7 +3,7 @@
   <div class="mb-2">
     <form id="inp-form" (submit)="formsub(f)" #f="ngForm">
     <input [(ngModel)]="newItem" name="add" #name  type="text" placeholder="Add Items" class="myinp" >
-    <button class="btn btn-primary ml-1" type="submit" (keyup)="check()" (click)="pushItem()">Add</button>
+    <button class="btn btn-primary ml-1" type="submit"  (click)="pushItem()">Add</button>
     <button type="button" [hidden]="!hide_update_btn" (click)="change()" class="btn btn-warning ml-2">Update</button>
     </form>
   </div>
