@@ -9,8 +9,8 @@ export class WeatherService {
 
   constructor(private http:HttpClient) { }
 public url:any;
-  dailyForecast(){
-    this.url = "http://api.openweathermap.org/data/2.5/forecast?q="+232326+"&appid=984c9f59ed850fb1a3c99136a045d266";
+  dailyForecast(zip){
+    this.url = "http://api.openweathermap.org/data/2.5/forecast?q="+zip+"&appid=984c9f59ed850fb1a3c99136a045d266";
 
     return this.http.get(this.url)
              .pipe( map(result => result) );
