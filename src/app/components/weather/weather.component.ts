@@ -10,11 +10,12 @@ import { Chart } from 'chart.js';
 export class WeatherComponent {
 
   chart = [];
-  zipcode:any;
+  hidden:boolean =true;
   constructor(private _weather: WeatherService) {}
 
 
 loadweather(zip,inp){
+  this.hidden = false;
   inp.value = "";
   this._weather.dailyForecast(zip)
   .subscribe(res => {
@@ -29,7 +30,7 @@ loadweather(zip,inp){
       weatherDates.push(jsdate.toLocaleTimeString('en', { year: 'numeric', month: 'short', day: 'numeric'}))
     })
     console.log(weatherDates);
-  
+   this.hidden = true;
     this.chart = new Chart('canvas', {
       type: 'bar',
       data: {

@@ -1,16 +1,19 @@
 <div class="container mt-3">
-  <h3>Items List</h3>
+ <h3>Items List</h3> 
+  <button type="button" (click)="fetchtodos()" class="btn btn-info">Show All Todos</button>
   <div class="mb-2">
     <form id="inp-form" (submit)="formsub(f)" #f="ngForm">
-    <input [(ngModel)]="newItem" name="add" #name  type="text" placeholder="Add Items" class="myinp" >
-    <button class="btn btn-primary ml-1" type="submit"  (click)="pushItem()">Add</button>
-    <button type="button" [hidden]="!hide_update_btn" (click)="change()" class="btn btn-warning ml-2">Update</button>
+      <p style="position:relative">
+    <input [(ngModel)]="newItem" name="add" #name  type="text"  placeholder="Add Items" class="myinp" >
+    <button class="btn btn-info" id="additem" type="submit" *ngIf="!updatebtn" (click)="pushItem()">Add Item</button>
+    <button type="button"  *ngIf="updatebtn" id="updateitem" (click)="change(name)" class="btn btn-warning">Update Item</button>
+  </p>
     </form>
   </div>
 
   <ul class="list-group">
     <li 
-    *ngFor= "let i of items; let ind =index"  
+    *ngFor= "let i of items"  
     class="list-group-item"> 
     
       {{i}} <span (click)="removeItem(ind)"  class="fa fa-trash-o"></span> 
@@ -18,6 +21,13 @@
             
     </li> 
   </ul>
+</div>
+
+<div *ngIf="fetchbtn" class="container">
+  <h4 class="text-center text-danger"> List of saved items </h4>
+  <ol class="list-group">
+    <li class="list-group-item" *ngFor="let todo of fetchdata"> {{todo}} </li>
+  </ol>
 </div>
 
  

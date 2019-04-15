@@ -9,12 +9,15 @@ import { NgForm } from '@angular/forms';
 })
 export class ItemManagerComponent implements OnInit {
   ngOnInit() {
+    
   }
 
-  items = ["React", "Nodejs", "JavaScript",];
+  items = [];
   newItem = "";
   editindex:any;
-  public hide_update_btn:boolean;
+  updatebtn:boolean = false;
+  fetchdata = [];
+  fetchbtn:boolean = false;
 
   @ViewChild("name") nameField: ElementRef;
   editName(): void {
@@ -41,8 +44,14 @@ export class ItemManagerComponent implements OnInit {
         footer: '<p href>Because You have not entered any value</p>'
       })
     }
+        localStorage.setItem("Array of Items", JSON.stringify(this.items));
   }
 
+  fetchtodos(){
+    this.fetchbtn = true;
+     this.fetchdata = JSON.parse( localStorage.getItem("Array of Items") );
+    console.log(this.fetchdata);
+  }
   removeItem = function (index) {
     console.log(index);
 
@@ -73,14 +82,16 @@ export class ItemManagerComponent implements OnInit {
 
   }
   update(index:any){
+    this.updatebtn = true;
     this.editindex = index;
-    this.hide_update_btn = true;
      this.newItem = this.items[index];
   }
-  change(){
+  change(name){
+    
+    this.updatebtn = false;
     console.log(this.editindex);
     this.items[this.editindex] = this.newItem;
-    this.hide_update_btn = false;
+    name.value = "";
   }
   // editItem:any;
   // editIndex = 0;

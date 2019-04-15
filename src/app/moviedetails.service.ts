@@ -10,10 +10,10 @@ export class MoviedetailsService {
 public imdb_id:any;
   getDetails(val:any){
 
-    return this.http.get(`http://www.omdbapi.com/?s=${val}&apikey=9e930b0`);
+    return this.http.get(`https://www.omdbapi.com/?s=${val}&apikey=9e930b0`);
   }
   getfulldetails(){
     this.imdb_id = sessionStorage.getItem('movieId');
-    return this.http.get(`http://www.omdbapi.com/?i=${this.imdb_id}&apikey=9e930b0`);
+    return this.http.get(`https://www.omdbapi.com/?i=${this.imdb_id}&apikey=9e930b0`);
   }
 }

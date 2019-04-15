@@ -4,18 +4,21 @@
   <form>
     <div class="form-group">
       <label for="exampleInputEmail1">Cityname or Zipcode</label>
-      <input [(ngModel)]="zip" name="weather-input"  #inp  type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter zipcode">
+      <p style="position: relative">
+      <input [(ngModel)]="zip" name="weather-input"  #inp  type="text" class="form-control w-75" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter zipcode">
+      <button type="submit" (click)="loadweather(zip,inp)" class="btn btn-danger">Submit</button> </p>
     </div>
     
     <!-- <div class="form-group form-check">
       <input type="checkbox" class="form-check-input" id="exampleCheck1">
       <label class="form-check-label" for="exampleCheck1">Check me out</label>
     </div> -->
-    <button type="submit" (click)="loadweather(zip,inp)" class="btn btn-danger">Submit</button>
+    
   </form>
 
 </div>
 
+<div [hidden]="hidden" class="loader"></div>
 <div *ngIf="chart">
   <canvas id="canvas" width="500" height="225" > {{chart}}     </canvas>
 </div>
