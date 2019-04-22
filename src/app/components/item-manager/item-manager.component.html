@@ -1,6 +1,6 @@
 <div class="container mt-3">
  <h3>Items List</h3> 
-  <button type="button" (click)="fetchtodos()" class="btn btn-info">Show All Todos</button>
+  <button type="button" (click)="fetchtodos()" class="btn btn-info mb-2">Show All Todos</button>
   <div class="mb-2">
     <form id="inp-form" (submit)="formsub(f)" #f="ngForm">
       <p style="position:relative">
@@ -20,6 +20,7 @@
             <span class="fa fa-pencil" (click)="update(ind); editName()"></span>
             
     </li> 
+    <li class="list-group-item p-2 text-center w-50" *ngIf="!items.length">No Todos Yet...</li>
   </ul>
 </div>
 

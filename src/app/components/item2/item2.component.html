@@ -1,0 +1,14 @@
+<div class="container mt-3">
+<h2>Todos List Manager</h2>
+<div class="mb-2">
+  <form id="inp-form" (submit)="formsubmit()">
+
+    <p style="position:relative">
+      <input [(ngModel)]="newItem" name="add" #name  type="text"  placeholder="Add Items" class="myinp" >
+      <button class="btn btn-info" id="additem" type="submit" *ngIf="!updatebtn" (click)="pushItem()">Add Item</button>
+      <button type="button"  *ngIf="updatebtn" id="updateitem" (click)="change(name)" class="btn btn-warning">Update Item</button>
+    </p>
+
+  </form>
+</div> 
+</div>

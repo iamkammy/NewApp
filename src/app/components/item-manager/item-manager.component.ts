@@ -82,6 +82,7 @@ export class ItemManagerComponent implements OnInit {
 
   }
   update(index:any){
+    alert("assa")
     this.updatebtn = true;
     this.editindex = index;
      this.newItem = this.items[index];
