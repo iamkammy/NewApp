@@ -1,14 +1,47 @@
-<div class="container mt-3">
-<h2>Todos List Manager</h2>
-<div class="mb-2">
-  <form id="inp-form" (submit)="formsubmit()">
+<div class="row">
+  <div class="col-md-8">
+      <div class="container mt-3">
+    <h2>Todos List Manager</h2>
+    <button type="button" class="btn btn-danger" (click)="deleteselected()">Delete</button>
+    <button type="button" class="btn btn-warning ml-2" (click)="clearAll()">Clear All</button>
+    <button type="button" class="btn btn-secondary ml-2" (click)="showAll()">Show All</button>
+    <div class="mb-2">
+      <form id="inp-form" (submit)="this.pushItem()">
 
-    <p style="position:relative">
-      <input [(ngModel)]="newItem" name="add" #name  type="text"  placeholder="Add Items" class="myinp" >
-      <button class="btn btn-info" id="additem" type="submit" *ngIf="!updatebtn" (click)="pushItem()">Add Item</button>
-      <button type="button"  *ngIf="updatebtn" id="updateitem" (click)="change(name)" class="btn btn-warning">Update Item</button>
-    </p>
+        <p style="position:relative">
+          <input [(ngModel)]="newItem" name="add" #inp  type="text"  placeholder="Add Items" class="myinp" >
+          <button class="btn btn-info" id="additem" type="button" *ngIf="!updatebtn" (click)="pushItem()">Add Item</button>
+          <button type="button"  *ngIf="updatebtn" id="updateitem" (click)="change(i)" class="btn btn-warning">Update</button>
+        </p>
+      </form>
 
-  </form>
-</div> 
+      <ul class="list-group">
+        <li class="list-group-item list-group-item-action w-50"
+          *ngFor="let item of items; index as i">
+
+        
+              <input (change)="checkbox($event.target.checked, i)" type="checkbox" class="form-check-input" id="{{i}}">
+              <label class="form-check-label text-left small" for="{{i}}">{{item}}</label>
+    
+          
+                <span (click)="removeItem(i)"  class="fa fa-trash-o"></span> 
+                <span class="fa fa-pencil" (click)="update(i,inp);"></span>
+          
+        </li>
+        <li *ngIf="!items.length" class="list-group-item w-50 bg-dark text-white text-center"> No Todos Yet</li>
+      </ul>
+    </div> 
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <ul class="list-group" *ngIf="show">
+      <li class="list-group-item list-group-item-action"
+          *ngFor="let value of showAray; index as i"> 
+
+          {{value}}
+
+      </li>
+    </ul>
+  </div>
 </div>
