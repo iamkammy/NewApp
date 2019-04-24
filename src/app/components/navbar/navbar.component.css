@@ -5,3 +5,19 @@
 .navbar-light .navbar-nav .nav-link {
     color: rgb(255, 255, 255);
 }
+
+.bg-apna{
+    background: #1b465a;
+}
+#gitprofile{
+    animation: 2s linear anime infinite;
+    color: #ff9800;
+    transition-delay: 0.4s;
+}
+#gitprofile:hover{
+    animation: none;
+}
+@keyframes anime{
+    from {opacity: 0;}
+    to{ opacity: 1;}
+}

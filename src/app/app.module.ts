@@ -23,6 +23,8 @@ import { ImdbComponent } from './components/imdb/imdb.component';
 import {WeatherService} from './weather.service';
 import { WeatherComponent } from './components/weather/weather.component';
 import { Item2Component } from './components/item2/item2.component';
+import { GitProfilerComponent } from './components/git-profiler/git-profiler.component';
+import { GitdataService } from './gitdata.service';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,7 @@ import { Item2Component } from './components/item2/item2.component';
     ImdbComponent,
     WeatherComponent,
     Item2Component,
+    GitProfilerComponent,
   ],
   imports: [
     SweetAlert2Module.forRoot(),
@@ -53,11 +56,12 @@ import { Item2Component } from './components/item2/item2.component';
       {path: 'MovieInfo', component: MovieinfoComponent},
       {path: 'imdb', component: ImdbComponent},
       {path: 'Weather', component: WeatherComponent},
-      {path: 'item2', component: Item2Component } 
+      {path: 'item2', component: Item2Component },
+      {path: 'GitProfiler', component: GitProfilerComponent } 
     ])
     // ReactiveFormsModule
   ],
-  providers: [DataService,MoviedetailsService,WeatherService],
+  providers: [DataService,MoviedetailsService,WeatherService,GitdataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
