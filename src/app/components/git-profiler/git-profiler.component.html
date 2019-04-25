@@ -5,64 +5,54 @@
 
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-4">
-      <form id="forminp" class="mt-4"> 
+    <div class="col-md-12 text-center">
+      <form id="forminp" class="mt-4" > 
             <div class="form-group">
-              <label for="exampleInputPassword1" class="text-info">Enter UserName</label>
+             
               <p>
-              <input [(ngModel)]="inputval" name="input" type="text" class="myinp form-control w-50" id="exampleInputPassword1" placeholder="Github Username">
-              <button (click)="show()" class=" mybtn btn btn-success">Submit</button>  </p>
+              <input [(ngModel)]="inputval" (keyup.enter)="show()" name = "input" type="text" class="myinp form-control w-50" id="exampleInputPassword1" placeholder="Enter Github Username">
+              <!-- <button (click)="show()" class=" mybtn btn btn-success">Submit</button>  </p> -->
             </div>
 
       </form>
     </div>
-
+  </div>
    
-      <div class="col-md-8" *ngIf="userdata">
-          <div class="loader" [hidden]="loader"> </div>
-            <div class="img-holder">
-              <img src={{userdata?.avatar_url}}>
+  <!-- for output -->
+<div class="row">
+  <div class="col-md-4">
+      <div *ngIf="userdata" class="card border-info outline-success" style="width: 18rem;">
+          <div class="img-holder">
+             <img class="card-img-top" src={{userdata?.avatar_url}} alt="Card image cap">
           </div>
-          <p> Following: {{userdata?.following}} </p>
-          <p> Followers: {{userdata?.followers}} </p>
-          <h4 *ngIf="userdata.name"> <span class="text-info"> Name:</span> {{userdata.name}}</h4>
+        <div class="card-body card-custom-body">
+          <h5 class="card-title text-info"> {{userdata?.name}} </h5>
+          <p> <span class="text-left text-dark">Following:</span> {{userdata?.following}} </p>
+          <p><span class="text-left text-dark">Followers:</span> {{userdata?.followers}} </p>
+          <p><span class="text-left text-dark">Username:</span> {{userdata?.login}} </p>
+          <p><span class="text-left text-dark">Type:</span> {{userdata?.type}} </p>
+         
+          <a href={{userdata.html_url}} target="_blank" class="btn  btn-outline-success">About Me</a>
+          <a (click)="reposfunc()" class="btn  text-info   btn-outline-info ml-2">My Repos</a>
+        </div>
       </div>
-
-      <!--  -->
-     
-      <!--  -->
   </div>
-
-  <div class="row">
-    <div class="col-md-12">
-        <!--  -->
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title"> {{userdata?.name}}Repos</h3>
+  <!-- for repos -->
+<div class="col-md-8" id="repos-div">
+    <div  *ngFor="let repo of repos">
+        <div class="row">
+            <div class="col-md-9">
+                <h4><a href="{{repo.html_url}}" target="_blank">{{repo.name}}</a></h4>    
+                <p>{{repo.description}}</p>
             </div>
-            <div class="panel-body">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div *ngFor="let repo of repos">
-                            <div class="row">
-                                <div class="col-md-9">
-                                    <h4><a href="{{repo?.html_url}}" target="_blank">{{repo?.name}}</a></h4>    
-                                    <p>{{repo?.description}}</p>
-                                </div>
-                                <div class="col-md-3">
-                                    <span class="badge badge-success mr-1">{{repo?.watchers}} Watchers</span>
-                                    <span class="badge badge-primary">{{repo?.forks}} Forks</span>
-                                </div>    
-                            </div> 
-                            <hr />  
-                        </div>    
-                    </div>    
-                </div>
-            </div>
-       </div>
-    
+            <div class="col-md-3">
+                <span class="badge badge-info mr-2">{{repo.watchers}} Watchers</span>
+                <span class="badge badge-warning">{{repo.forks}} Forks</span>
+            </div>    
+        </div> 
+        <hr />  
+    </div>    
+</div>
 
-        <!--  -->
-    </div>
-  </div>
+ </div>
 </div>

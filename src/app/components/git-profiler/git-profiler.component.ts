@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GitdataService } from '../../gitdata.service';
+import swal from 'sweetalert2';
 @Component({
   selector: 'app-git-profiler',
   templateUrl: './git-profiler.component.html',
@@ -9,6 +10,7 @@ export class GitProfilerComponent implements OnInit {
 
   constructor( private gitdata: GitdataService) { }
 inputval;
+error;
 userdata;
 repos:any;
 loader:boolean = true;
@@ -18,15 +20,22 @@ loader:boolean = true;
   
   show(){
     this.loader = false;
+   
         this.gitdata.getUser(this.inputval).subscribe((data:any)   =>{
           this.loader = true;
           if(data){
             this.userdata = data;
           }
-         
           console.log("data aaya",data, this.userdata)
+    }, error =>{
+      this.error= error;
+      console.log( "User "+this.error.error.message);
+      swal({
+        // title: data.Error,
+        text: `Sorry For the Inconvenience, User ${this.error.error.message}`,
+        type:"error"
+        });
     })
-    this.reposfunc();
     
   }
 
