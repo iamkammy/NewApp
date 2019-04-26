@@ -28,6 +28,7 @@ loader:boolean = true;
           }
           console.log("data aaya",data, this.userdata)
     }, error =>{
+      this.loader = true;
       this.error= error;
       console.log( "User "+this.error.error.message);
       swal({
@@ -44,6 +45,10 @@ loader:boolean = true;
        this.repos = data;
        console.log(data);
      })
+  }
+  vacant(){
+    this.userdata = "";
+    this.repos = null;
   }
 
 }

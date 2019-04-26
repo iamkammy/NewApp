@@ -25,6 +25,8 @@ import { WeatherComponent } from './components/weather/weather.component';
 import { Item2Component } from './components/item2/item2.component';
 import { GitProfilerComponent } from './components/git-profiler/git-profiler.component';
 import { GitdataService } from './gitdata.service';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -58,7 +60,8 @@ import { GitdataService } from './gitdata.service';
       {path: 'Weather', component: WeatherComponent},
       {path: 'item2', component: Item2Component },
       {path: 'GitProfiler', component: GitProfilerComponent } 
-    ])
+    ]),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
     // ReactiveFormsModule
   ],
   providers: [DataService,MoviedetailsService,WeatherService,GitdataService],

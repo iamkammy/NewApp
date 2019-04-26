@@ -1,5 +1,5 @@
     
-    <div class="alert alert-info text-center text-black display-4"  role="alert">
+    <div class="alert alert-info text-center text-black"  role="alert">
         GitHub Profiler For Developerss
       </div>
 
@@ -10,7 +10,7 @@
             <div class="form-group">
              
               <p>
-              <input [(ngModel)]="inputval" (keyup.enter)="show()" name = "input" type="text" class="myinp form-control w-50" id="exampleInputPassword1" placeholder="Enter Github Username">
+              <input [(ngModel)]="inputval" (keydown)="vacant()" (keyup.enter)="show()" name = "input" type="text" class="myinp form-control w-50" id="exampleInputPassword1" placeholder="Enter Github Username">
               <!-- <button (click)="show()" class=" mybtn btn btn-success">Submit</button>  </p> -->
             </div>
 
@@ -18,9 +18,11 @@
     </div>
   </div>
    
+  
   <!-- for output -->
 <div class="row">
   <div class="col-md-4">
+   
       <div *ngIf="userdata" class="card border-info outline-success" style="width: 18rem;">
           <div class="img-holder">
              <img class="card-img-top" src={{userdata?.avatar_url}} alt="Card image cap">
@@ -39,6 +41,7 @@
   </div>
   <!-- for repos -->
 <div class="col-md-8" id="repos-div">
+    <div class="loader" [hidden]="loader"></div>
     <div  *ngFor="let repo of repos">
         <div class="row">
             <div class="col-md-9">
