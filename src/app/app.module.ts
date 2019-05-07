@@ -2,6 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {RouterModule} from '@angular/router';
 
+import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireModule } from '@angular/fire';
+import { Observable } from 'rxjs';
+import {  AngularFireDatabaseModule } from '@angular/fire/database';
+
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserComponent } from './components/user/user.component';
@@ -27,6 +33,10 @@ import { GitProfilerComponent } from './components/git-profiler/git-profiler.com
 import { GitdataService } from './gitdata.service';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { EmployeeComponent } from './components/employee/employee.component';
+import { EmployeeFormComponent } from './components/employee/employee-form/employee-form.component';
+import { EmployeeListComponent } from './components/employee/employee-list/employee-list.component';
+
 
 @NgModule({
   declarations: [
@@ -42,6 +52,9 @@ import { environment } from '../environments/environment';
     WeatherComponent,
     Item2Component,
     GitProfilerComponent,
+    EmployeeComponent,
+    EmployeeFormComponent,
+    EmployeeListComponent,
   ],
   imports: [
     SweetAlert2Module.forRoot(),
@@ -49,6 +62,10 @@ import { environment } from '../environments/environment';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    AngularFireDatabaseModule,
+    AngularFireModule,
+    AngularFirestoreModule,
+AngularFireModule.initializeApp(environment.firebaseConfig),
     RouterModule.forRoot([
       
       {path: 'items', component: ItemManagerComponent},
@@ -59,7 +76,9 @@ import { environment } from '../environments/environment';
       {path: 'imdb', component: ImdbComponent},
       {path: 'Weather', component: WeatherComponent},
       {path: 'item2', component: Item2Component },
-      {path: 'GitProfiler', component: GitProfilerComponent } 
+      {path: 'GitProfiler', component: GitProfilerComponent },
+      {path: 'employee', component : EmployeeComponent},
+    
     ]),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
     // ReactiveFormsModule

@@ -1,0 +1,43 @@
+
+ 
+<form #employeeForm="ngForm" class="w-75" (ngSubmit)="onSubmit(employeeForm)">
+  <input type="hidden" name="$key" #$key='ngModel' [(ngModel)]="employeeService.selectedEmployee.$key">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input  id="name" required name="name" [class.is-invalid]="name.invalid && name.touched" class="form-control" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.name" placeholder="Full Name">
+    <div  *ngIf="name.invalid && name.touched"> 
+      <small class="text-danger">Please Enter you name</small>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="position">Position</label>
+    <input required id="position" name="position" class="form-control" [class.is-invalid]="position.invalid && position.touched" #position="ngModel" [(ngModel)]="employeeService.selectedEmployee.position" placeholder="Position">
+    <div *ngIf="position.invalid && position.touched">
+      <small class="text-danger">Please Enter your Position</small>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="office">Office</label>
+    <input required id="office" name="office" class="form-control" #office="ngModel" [(ngModel)]="employeeService.selectedEmployee.office" placeholder="Office">
+  </div>
+
+  <div class="form-group">
+      <label for="salary">Salary</label>
+    <div class="input-group">
+      <div class="input-group-addon">
+        <i class="fa fa-dollar"></i>
+      </div>
+      <input required id="salary" name="salary" class="form-control" #salary="ngModel" [(ngModel)]="employeeService.selectedEmployee.salary" placeholder="Salary">
+    </div>
+    
+  </div>
+
+  <div class="form-group">
+    <button type="submit" *ngIf="!this.employeeService.update" [disabled]="employeeForm.invalid" class="btn btn-success mr-2"> <i class="fa fa-floppy-o"></i> Submit</button>
+    <button type="submit" *ngIf="this.employeeService.update" class="btn btn-warning mr-2"> <i class="fa fa-floppy-o"></i> Update</button>
+    <button (click)="onDelete(employeeForm)" *ngIf="employeeService.selectedEmployee.$key!=null" type="button" class="btn btn-danger mr-2"> <i class="fa fa-trash"></i> Delete</button>
+    <button type="button" class="btn btn-secondary" (click)="resetForm()"> <i class="fa fa-repeat"></i> Clear</button>
+  </div>
+</form>
