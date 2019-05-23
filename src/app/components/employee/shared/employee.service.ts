@@ -5,6 +5,7 @@ import {AngularFireDatabase, AngularFireList} from '@angular/fire/database';
   providedIn: 'root'
 })
 export class EmployeeService {
+  empform;
   employeeList: AngularFireList<any>;
   selectedEmployee:Employee = new Employee();
   constructor(private firebase: AngularFireDatabase) { }
@@ -13,8 +14,10 @@ update:boolean = false;
     this.employeeList = this.firebase.list('employees');
     return this.employeeList;
   }
+
   insertEmployee(employee:Employee){
-    this.employeeList.push({
+    this.empform = employee;
+      this.employeeList.push({
       name: employee.name,
       position: employee.position,
       office: employee.office,

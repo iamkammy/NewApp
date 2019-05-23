@@ -25,19 +25,18 @@
 
   <div class="form-group">
       <label for="salary">Salary</label>
-    <div class="input-group">
-      <div class="input-group-addon">
+    <div class="input-group" id="div-hold">
+      <div class="input-group-addon" id="div-dollar">
         <i class="fa fa-dollar"></i>
       </div>
       <input required id="salary" name="salary" class="form-control" #salary="ngModel" [(ngModel)]="employeeService.selectedEmployee.salary" placeholder="Salary">
     </div>
-    
   </div>
 
   <div class="form-group">
     <button type="submit" *ngIf="!this.employeeService.update" [disabled]="employeeForm.invalid" class="btn btn-success mr-2"> <i class="fa fa-floppy-o"></i> Submit</button>
-    <button type="submit" *ngIf="this.employeeService.update" class="btn btn-warning mr-2"> <i class="fa fa-floppy-o"></i> Update</button>
+    <button type="submit" *ngIf="this.employeeService.update"  class="btn btn-warning mr-2"> <i class="fa fa-pencil"></i> Update</button>
     <button (click)="onDelete(employeeForm)" *ngIf="employeeService.selectedEmployee.$key!=null" type="button" class="btn btn-danger mr-2"> <i class="fa fa-trash"></i> Delete</button>
-    <button type="button" class="btn btn-secondary" (click)="resetForm()"> <i class="fa fa-repeat"></i> Clear</button>
+    <button (click)="resetForm()" type="button" class="btn btn-secondary"> <i class="fa fa-repeat"></i> Clear</button>
   </div>
 </form>

@@ -1,5 +1,10 @@
 <ul class="list-group hover">
-  <li class="list-group-item" *ngFor="let employee of employeelist" (click)="onItemClick(employee)">
-    {{employee.name}} - ({{employee.position}})
+  <li class="list-group-item emp-list" *ngFor="let employee of employeelist" (click)="onItemClick(employee)"
+  >
+    {{employee.name}} - ( {{employee.position}} )
+
+    <i class="fa fa-long-arrow-right emp-pencil"></i>
+   
   </li>
+  <li class="list-group-item text-info" *ngIf="this.employeelist == 0">No Any Employee Added Yet ...</li>
 </ul>

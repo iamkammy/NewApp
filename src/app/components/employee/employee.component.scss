@@ -1,3 +1,18 @@
 .myjumbo{
     padding: 23px 25px;
 }
+
+.swal2-popup {
+    display: none;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    width: 251px;
+    // max-width: 100%;
+    padding: 1px 1px;
+    border-radius: 0.3125em;
+    background: #fff;
+    font-family: inherit;
+    font-size: 10px;
+    box-sizing: border-box;
+}

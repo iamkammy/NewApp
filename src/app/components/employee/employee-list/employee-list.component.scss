@@ -1,0 +1,18 @@
+
+    .emp-pencil{
+        position: absolute;
+        right:105%;
+        color: #067db7;
+        transition: 0.4s;
+    }
+    .emp-list{
+        transition: 1.4s;
+    }
+    .emp-list:hover{
+        // transform: translateX(-10px);
+        .emp-pencil{
+            transform: translateX(10px) rotate(180deg);
+            color: #9a2323;
+            
+        }
+    }

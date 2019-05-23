@@ -7,3 +7,33 @@
     background-color: rgba(43, 165, 137, 0.45);
   }
 
+
+.swal2-popup {
+    display: none;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    width: 26em;
+    max-width: 100%;
+    /* padding: 1.25em; */
+    border-radius: 0.3125em;
+    background: #fff;
+    font-family: inherit;
+    /* font-size: 1rem; */
+    box-sizing: border-box;
+}
+
+.swal2-popup.swal2-modal.swal2-show{
+    display: none;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    width: 260px !important;
+    max-width: 100%;
+     padding: 1px 1px !important; 
+    border-radius: 0.3125em;
+    background: #fff;
+    font-family: inherit;
+    font-size: 10px !important; 
+    box-sizing: border-box;
+}

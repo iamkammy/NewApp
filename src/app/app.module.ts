@@ -2,9 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {RouterModule} from '@angular/router';
 
-import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire';
-import { Observable } from 'rxjs';
 import {  AngularFireDatabaseModule } from '@angular/fire/database';
 
 
@@ -36,6 +35,7 @@ import { environment } from '../environments/environment';
 import { EmployeeComponent } from './components/employee/employee.component';
 import { EmployeeFormComponent } from './components/employee/employee-form/employee-form.component';
 import { EmployeeListComponent } from './components/employee/employee-list/employee-list.component';
+import { TrackComponent } from './components/track/track.component';
 
 
 @NgModule({
@@ -55,6 +55,7 @@ import { EmployeeListComponent } from './components/employee/employee-list/emplo
     EmployeeComponent,
     EmployeeFormComponent,
     EmployeeListComponent,
+    TrackComponent,
   ],
   imports: [
     SweetAlert2Module.forRoot(),
@@ -78,6 +79,7 @@ AngularFireModule.initializeApp(environment.firebaseConfig),
       {path: 'item2', component: Item2Component },
       {path: 'GitProfiler', component: GitProfilerComponent },
       {path: 'employee', component : EmployeeComponent},
+      {path: 'track', component : TrackComponent},
     
     ]),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
